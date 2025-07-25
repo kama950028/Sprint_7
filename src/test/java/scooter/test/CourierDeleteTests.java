@@ -1,36 +1,37 @@
 package scooter.test;
 
+import io.qameta.allure.junit4.DisplayName;
 import scooter.client.CourierClient;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
-import io.qameta.allure.Step;
+import scooter.model.CourierModel;
+import com.github.javafaker.Faker;
+import io.qameta.allure.*;
 import org.junit.Test;
 
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.*;
+
 
 @Epic("Courier API")
 @Feature("Delete Courier")
 public class CourierDeleteTests {
 
     private final CourierClient courierClient = new CourierClient();
+    private final Faker faker = new Faker();
 
     @Test
     @Story("Positive: Delete existing courier")
+    @DisplayName("Удаление курьера по валидному ID")
     @Description("Создаёт курьера и успешно удаляет его по id. Ожидается ok: true и статус 200.")
     public void shouldDeleteCourierSuccessfullyTest() {
-        String login = "courier_" + System.currentTimeMillis();
-        String password = "1234";
-        String firstName = "Ivan";
-
-        createCourier(login, password, firstName);
-        int courierId = loginCourier(login, password);
+        CourierModel courier = generateCourier();
+        createCourier(courier);
+        int courierId = loginCourier(courier);
         deleteCourier(courierId);
     }
 
     @Test
     @Story("Negative: Delete without id")
+    @DisplayName("Удаление курьера без указания ID")
     @Description("Проверяет, что если не указать id, возвращается ошибка 400")
     public void shouldFailToDeleteWithoutIdTest() {
         deleteCourierWithoutId();
@@ -38,41 +39,50 @@ public class CourierDeleteTests {
 
     @Test
     @Story("Negative: Delete with non-existent id")
+    @DisplayName("Удаление курьера по несуществующему ID")
     @Description("Проверяет, что если передать несуществующий id, возвращается ошибка 404")
     public void shouldFailToDeleteNonexistentCourierTest() {
         int nonexistentId = 999999;
         deleteCourierExpectingNotFound(nonexistentId);
     }
 
-    @Step("Создание курьера с логином: {login}")
-    private void createCourier(String login, String password, String firstName) {
-        courierClient.createCourier(login, password, firstName)
-                .statusCode(201);
+    @Step("Создание курьера: {0}")
+    private void createCourier(CourierModel courier) {
+        courierClient.createCourier(courier)
+                .statusCode(SC_CREATED);
     }
 
-    @Step("Логин курьера: {login}")
-    private int loginCourier(String login, String password) {
-        return courierClient.loginCourier(login, password);
+    @Step("Логин курьера: {0}")
+    private int loginCourier(CourierModel courier) {
+        return courierClient.loginCourier(courier.getLogin(), courier.getPassword());
     }
 
-    @Step("Удаление курьера по id: {courierId}")
+    @Step("Удаление курьера по id: {0}")
     private void deleteCourier(int courierId) {
         courierClient.deleteCourier(courierId)
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("ok", is(true));
     }
 
     @Step("Удаление курьера без id")
     private void deleteCourierWithoutId() {
         courierClient.deleteCourierWithoutId()
-                .statusCode(400)
+                .statusCode(SC_BAD_REQUEST)
                 .body("message", containsString("Недостаточно данных для удаления курьера"));
     }
 
-    @Step("Удаление несуществующего курьера с id: {courierId}")
+    @Step("Удаление несуществующего курьера с id: {0}")
     private void deleteCourierExpectingNotFound(int courierId) {
         courierClient.deleteCourier(courierId)
-                .statusCode(404)
+                .statusCode(SC_NOT_FOUND)
                 .body("message", containsString("Курьера с таким id нет"));
+    }
+
+    @Step("Генерация данных курьера через Faker")
+    private CourierModel generateCourier() {
+        String login = "courier_" + faker.number().digits(6);
+        String password = faker.internet().password();
+        String firstName = faker.name().firstName();
+        return new CourierModel(login, password, firstName);
     }
 }

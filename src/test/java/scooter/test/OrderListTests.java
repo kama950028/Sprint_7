@@ -1,13 +1,11 @@
 package scooter.test;
 
+import io.qameta.allure.junit4.DisplayName;
 import scooter.client.OrderClient;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
-import io.qameta.allure.Step;
+import io.qameta.allure.*;
 import org.junit.Test;
 
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.*;
 
 @Epic("Order API")
@@ -17,6 +15,7 @@ public class OrderListTests {
     private final OrderClient orderClient = new OrderClient();
 
     @Test
+    @DisplayName("Получение всех заказов")
     @Story("Positive: Get all orders")
     @Description("Проверяет, что возвращается список заказов без параметров")
     public void shouldReturnAllOrdersTest() {
@@ -24,6 +23,7 @@ public class OrderListTests {
     }
 
     @Test
+    @DisplayName("Получение заказов по courierId")
     @Story("Positive: Get orders by courierId")
     @Description("Проверяет, что можно получить заказы по courierId = 1")
     public void shouldReturnOrdersByCourierIdTest() {
@@ -31,6 +31,7 @@ public class OrderListTests {
     }
 
     @Test
+    @DisplayName("Получение заказов по courierId и ближайшим станциям")
     @Story("Positive: Get orders by courierId and station filters")
     @Description("Проверяет, что можно получить заказы по courierId и ближайшим станциям")
     public void shouldReturnOrdersByCourierIdAndStationsTest() {
@@ -38,6 +39,7 @@ public class OrderListTests {
     }
 
     @Test
+    @DisplayName("Получение заказов с лимитом и страницей")
     @Story("Positive: Get paginated orders")
     @Description("Проверяет, что можно получить 10 заказов на 1-й странице")
     public void shouldReturnLimitedOrdersTest() {
@@ -45,6 +47,7 @@ public class OrderListTests {
     }
 
     @Test
+    @DisplayName("Получение заказов по станции Калужская (110)")
     @Story("Positive: Get paginated orders near station")
     @Description("Проверяет, что можно получить 10 заказов на станции Калужская (110)")
     public void shouldReturnLimitedOrdersNearStationTest() {
@@ -52,6 +55,7 @@ public class OrderListTests {
     }
 
     @Test
+    @DisplayName("Пустой список для несуществующего courierId")
     @Story("Negative: Invalid courierId")
     @Description("Проверяет, что запрос с несуществующим courierId возвращает пустой список")
     public void shouldReturnEmptyListForInvalidCourierIdTest() {
@@ -59,6 +63,7 @@ public class OrderListTests {
     }
 
     @Test
+    @DisplayName("Пустой список при несуществующих станциях")
     @Story("Negative: Invalid nearestStation values")
     @Description("Проверяет, что запрос с несуществующими станциями возвращает пустой список")
     public void shouldReturnEmptyListForInvalidStationsTest() {
@@ -66,6 +71,7 @@ public class OrderListTests {
     }
 
     @Test
+    @DisplayName("Корректный ответ при пустом массиве nearestStation")
     @Story("Negative: Empty nearestStation array")
     @Description("Проверяет, что запрос с пустым массивом nearestStation возвращает валидный ответ")
     public void shouldReturnValidResponseForEmptyStationsTest() {
@@ -73,6 +79,7 @@ public class OrderListTests {
     }
 
     @Test
+    @DisplayName("Ошибка или пустой результат при отрицательном limit")
     @Story("Negative: Negative limit")
     @Description("Проверяет, что limit = -5 вызывает ошибку или пустой результат")
     public void shouldFailForNegativeLimitTest() {
@@ -80,6 +87,7 @@ public class OrderListTests {
     }
 
     @Test
+    @DisplayName("Ошибка или пустой результат при отрицательной page")
     @Story("Negative: Negative page")
     @Description("Проверяет, что page = -1 вызывает ошибку или пустой результат")
     public void shouldFailForNegativePageTest() {
@@ -87,6 +95,7 @@ public class OrderListTests {
     }
 
     @Test
+    @DisplayName("Пустой результат при нереалистичных фильтрах")
     @Story("Negative: No orders for unrealistic filter")
     @Description("Проверяет, что при заведомо некорректных фильтрах заказы не возвращаются")
     public void shouldReturnEmptyListForUnrealisticFilterTest() {
@@ -96,68 +105,68 @@ public class OrderListTests {
     @Step("Получение всех заказов")
     private void getAllOrdersAndCheck() {
         orderClient.getAllOrders()
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("orders", notNullValue());
     }
 
     @Step("Получение заказов по courierId = {courierId}")
     private void getOrdersByCourierId(int courierId) {
         orderClient.getOrdersByCourierId(courierId)
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("orders", notNullValue());
     }
 
     @Step("Получение заказов по courierId = {courierId} и станциям {stations}")
     private void getOrdersByCourierIdAndStations(int courierId, String[] stations) {
         orderClient.getOrdersByCourierIdAndStations(courierId, stations)
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("orders", notNullValue());
     }
 
-    @Step("Получение заказов с пагинацией: limit = {limit}, page = {page}")
+    @Step("Получение заказов: limit = {limit}, page = {page}")
     private void getLimitedOrders(int limit, int page) {
         orderClient.getLimitedOrders(limit, page)
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("orders.size()", lessThanOrEqualTo(limit));
     }
 
     @Step("Получение заказов по станциям {stations}, limit = {limit}, page = {page}")
     private void getLimitedOrdersByStations(int limit, int page, String[] stations) {
         orderClient.getLimitedOrdersByStations(limit, page, stations)
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("orders", notNullValue());
     }
 
-    @Step("Получение заказов по courierId = {courierId}, ожидается пустой список")
+    @Step("Ожидаем пустой список заказов по courierId = {courierId}")
     private void getOrdersByCourierIdExpectingEmpty(int courierId) {
         orderClient.getOrdersByCourierId(courierId)
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("orders", empty());
     }
 
-    @Step("Получение заказов по courierId = {courierId} и несуществующим станциям")
+    @Step("Ожидаем пустой список по несуществующим станциям: {stations}")
     private void getOrdersByCourierIdAndStationsExpectingEmpty(int courierId, String[] stations) {
         orderClient.getOrdersByCourierIdAndStations(courierId, stations)
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("orders", empty());
     }
 
-    @Step("Получение заказов с некорректным limit = {limit}")
+    @Step("Проверка с некорректным limit = {limit}")
     private void getLimitedOrdersWithInvalidLimit(int limit, int page) {
         orderClient.getLimitedOrders(limit, page)
-                .statusCode(anyOf(is(200), is(400)));
+                .statusCode(anyOf(is(SC_OK), is(SC_BAD_REQUEST)));
     }
 
-    @Step("Получение заказов с некорректным page = {page}")
+    @Step("Проверка с некорректной page = {page}")
     private void getLimitedOrdersWithInvalidPage(int limit, int page) {
         orderClient.getLimitedOrders(limit, page)
-                .statusCode(anyOf(is(200), is(400)));
+                .statusCode(anyOf(is(SC_OK), is(SC_BAD_REQUEST)));
     }
 
-    @Step("Получение заказов с нереалистичными фильтрами (станции: {stations})")
+    @Step("Ожидаем пустой список при фильтрах по станциям: {stations}")
     private void getLimitedOrdersByStationsExpectingEmpty(int limit, int page, String[] stations) {
         orderClient.getLimitedOrdersByStations(limit, page, stations)
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("orders", empty());
     }
 }

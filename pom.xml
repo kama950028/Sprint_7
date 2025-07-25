@@ -10,14 +10,14 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source> <!-- или 17 -->
+        <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <allure.version>2.24.0</allure.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
-        <dependencies>
+    <dependencies>
         <!-- JUnit 4 -->
         <dependency>
             <groupId>junit</groupId>
@@ -26,20 +26,25 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- RestAssured -->
+        <!-- RestAssured (убрано scope=test, т.к. используется в runtime) -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>5.3.1</version>
-            <scope>test</scope>
         </dependency>
 
-        <!-- JSON Path (для RestAssured) -->
+        <!-- JSON Path -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-path</artifactId>
             <version>5.3.1</version>
-            <scope>test</scope>
+        </dependency>
+
+        <!-- Jackson Databind (для сериализации объектов в JSON) -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.17.1</version>
         </dependency>
 
         <!-- Allure JUnit4 -->
@@ -49,11 +54,18 @@
             <version>${allure.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- JavaFaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Maven Surefire для запуска тестов -->
+            <!-- Maven Surefire -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -71,7 +83,6 @@
                     </properties>
                 </configuration>
             </plugin>
-
 
             <!-- Allure Report Plugin -->
             <plugin>

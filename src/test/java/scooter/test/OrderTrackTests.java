@@ -1,11 +1,12 @@
 package scooter.test;
 
+import io.qameta.allure.junit4.DisplayName;
 import scooter.client.OrderClient;
 import io.qameta.allure.*;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import com.github.javafaker.Faker;
+import org.junit.*;
 
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.*;
 
 @Epic("Order API")
@@ -13,18 +14,20 @@ import static org.hamcrest.Matchers.*;
 public class OrderTrackTests {
 
     private final OrderClient orderClient = new OrderClient();
+    private final Faker faker = new Faker();
     private int createdTrack;
 
     @Before
     @Step("Создание заказа перед тестом")
     public void createOrder() {
         createdTrack = orderClient.createOrder(new String[]{"BLACK"})
-                .statusCode(201)
+                .statusCode(SC_CREATED)
                 .extract()
                 .path("track");
     }
 
     @Test
+    @DisplayName("Получение заказа по корректному номеру трека")
     @Story("Positive: Get order by valid track")
     @Description("Проверяет, что по корректному номеру заказа возвращается заказ")
     public void shouldReturnOrderByValidTrackTest() {
@@ -32,6 +35,7 @@ public class OrderTrackTests {
     }
 
     @Test
+    @DisplayName("Ошибка при отсутствии параметра track")
     @Story("Negative: Missing track param")
     @Description("Проверяет, что без параметра track возвращается ошибка 400")
     public void shouldFailWithoutTrackParamTest() {
@@ -39,36 +43,42 @@ public class OrderTrackTests {
     }
 
     @Test
+    @DisplayName("Ошибка при несуществующем треке заказа")
     @Story("Negative: Non-existent track")
     @Description("Проверяет, что с несуществующим треком возвращается ошибка 404")
     public void shouldFailForNonExistentTrackTest() {
-        getOrderByInvalidTrack(9999999);
+        int invalidTrack = faker.number().numberBetween(10_000_000, 99_999_999); // реалистично-несуществующий
+        getOrderByInvalidTrack(invalidTrack);
     }
 
     @After
-    @Step("Завершение теста. Логирование track заказа")
+    @Step("Отмена созданного заказа")
     public void tearDown() {
-        System.out.println("Тест завершён. Track заказа: " + createdTrack);
+        if (createdTrack > 0) {
+            orderClient.cancelOrderByTrack(createdTrack)
+                    .statusCode(SC_OK)
+                    .body("ok", is(true));
+        }
     }
 
     @Step("Получение заказа по треку: {0}")
     private void getOrderByTrack(int track) {
         orderClient.getOrderByTrack(track)
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("order", notNullValue());
     }
 
     @Step("Получение заказа по несуществующему треку: {0}")
     private void getOrderByInvalidTrack(int track) {
         orderClient.getOrderByTrack(track)
-                .statusCode(404)
+                .statusCode(SC_NOT_FOUND)
                 .body("message", containsString("Заказ не найден"));
     }
 
     @Step("Попытка получить заказ без передачи track")
     private void getOrderWithoutTrack() {
         orderClient.getOrderWithoutTrack()
-                .statusCode(400)
+                .statusCode(SC_BAD_REQUEST)
                 .body("message", containsString("Недостаточно данных для поиска"));
     }
 }

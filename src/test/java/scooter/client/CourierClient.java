@@ -2,48 +2,66 @@ package scooter.client;
 
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
+import scooter.config.BaseSpec;
+import scooter.model.CourierLoginModel;
+import scooter.model.CourierModel;
 
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.*;
 
 public class CourierClient {
 
-    private static final String BASE_URI = "https://qa-scooter.praktikum-services.ru";
     private static final String COURIER_ENDPOINT = "/api/v1/courier";
 
-    @Step("Создание курьера: login={0}")
-    public ValidatableResponse createCourier(String login, String password, String firstName) {
+    @Step("Создание курьера: {0}")
+    public ValidatableResponse createCourier(CourierModel courier) {
         return given()
-                .baseUri(BASE_URI)
-                .header("Content-type", "application/json")
-                .body(String.format("{ \"login\": \"%s\", \"password\": \"%s\", \"firstName\": \"%s\" }", login, password, firstName))
+                .spec(BaseSpec.REQUEST_SPEC)
+                .body(courier)
                 .when()
                 .post(COURIER_ENDPOINT)
                 .then();
     }
 
+    @Step("Создание курьера: login={login}, password={password}, firstName={firstName}")
+    public ValidatableResponse createCourier(String login, String password, String firstName) {
+        CourierModel courier = new CourierModel();
+        courier.setLogin(login);
+        courier.setPassword(password);
+        courier.setFirstName(firstName);
+        return createCourier(courier);
+    }
+
+    @Step("Авторизация курьера: login = {0}")
+    public int loginCourier(String login, String password) {
+        CourierLoginModel loginModel = new CourierLoginModel(login, password);
+        return given()
+                .spec(BaseSpec.REQUEST_SPEC)
+                .body(loginModel)
+                .when()
+                .post(COURIER_ENDPOINT + "/login")
+                .then()
+                .statusCode(SC_OK)
+                .extract()
+                .path("id");
+    }
+
+
     @Step("Авторизация курьера (raw): login = {0}")
     public ValidatableResponse loginCourierRaw(String login, String password) {
+        CourierLoginModel loginModel = new CourierLoginModel(login, password);
         return given()
-                .baseUri(BASE_URI)
-                .header("Content-type", "application/json")
-                .body(String.format("{ \"login\": \"%s\", \"password\": \"%s\" }", login, password))
+                .spec(BaseSpec.REQUEST_SPEC)
+                .body(loginModel)
                 .when()
                 .post(COURIER_ENDPOINT + "/login")
                 .then();
     }
 
-    @Step("Авторизация курьера: login = {0}")
-    public int loginCourier(String login, String password) {
-        return loginCourierRaw(login, password)
-                .statusCode(200)
-                .extract()
-                .path("id");
-    }
-
     @Step("Удаление курьера по id = {0}")
     public ValidatableResponse deleteCourier(int courierId) {
         return given()
-                .baseUri(BASE_URI)
+                .spec(BaseSpec.REQUEST_SPEC)
                 .when()
                 .delete(COURIER_ENDPOINT + "/" + courierId)
                 .then();
@@ -52,7 +70,7 @@ public class CourierClient {
     @Step("Удаление курьера без id")
     public ValidatableResponse deleteCourierWithoutId() {
         return given()
-                .baseUri(BASE_URI)
+                .spec(BaseSpec.REQUEST_SPEC)
                 .when()
                 .delete(COURIER_ENDPOINT)
                 .then();

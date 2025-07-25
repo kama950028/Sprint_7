@@ -45,4 +45,5 @@ out/
 *.log
 
 # Разрешаем Allure-отчёт в target
+!target/
 !target/allure-results/
