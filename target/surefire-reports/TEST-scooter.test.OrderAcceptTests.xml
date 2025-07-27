@@ -1,79 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="scooter.test.OrderAcceptTests" time="43.427" tests="15" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="scooter.test.OrderAcceptTests" time="162.063" tests="15" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="sun.desktop" value="windows"/>
-    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
-    <property name="java.specification.version" value="11"/>
-    <property name="sun.cpu.isalist" value="amd64"/>
-    <property name="sun.jnu.encoding" value="Cp1251"/>
-    <property name="java.class.path" value="C:\Users\Анатолий\.m2\repository\org\apache\maven\surefire\surefire-booter\3.2.5\surefire-booter-3.2.5.jar;C:\Users\Анатолий\.m2\repository\org\apache\maven\surefire\surefire-api\3.2.5\surefire-api-3.2.5.jar;C:\Users\Анатолий\.m2\repository\org\apache\maven\surefire\surefire-logger-api\3.2.5\surefire-logger-api-3.2.5.jar;C:\Users\Анатолий\.m2\repository\org\apache\maven\surefire\surefire-shared-utils\3.2.5\surefire-shared-utils-3.2.5.jar;C:\Users\Анатолий\.m2\repository\org\apache\maven\surefire\surefire-extensions-spi\3.2.5\surefire-extensions-spi-3.2.5.jar;C:\cygwin64\home\Анатолий\Sprint_7\target\test-classes;C:\cygwin64\home\Анатолий\Sprint_7\target\classes;C:\Users\Анатолий\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Анатолий\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Анатолий\.m2\repository\io\rest-assured\rest-assured\5.3.1\rest-assured-5.3.1.jar;C:\Users\Анатолий\.m2\repository\org\apache\groovy\groovy\4.0.11\groovy-4.0.11.jar;C:\Users\Анатолий\.m2\repository\org\apache\groovy\groovy-xml\4.0.11\groovy-xml-4.0.11.jar;C:\Users\Анатолий\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\Анатолий\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\Анатолий\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Анатолий\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\Анатолий\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\Анатолий\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\Анатолий\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\Анатолий\.m2\repository\io\rest-assured\xml-path\5.3.1\xml-path-5.3.1.jar;C:\Users\Анатолий\.m2\repository\io\rest-assured\json-path\5.3.1\json-path-5.3.1.jar;C:\Users\Анатолий\.m2\repository\org\apache\groovy\groovy-json\4.0.11\groovy-json-4.0.11.jar;C:\Users\Анатолий\.m2\repository\io\rest-assured\rest-assured-common\5.3.1\rest-assured-common-5.3.1.jar;C:\Users\Анатолий\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.1\jackson-databind-2.17.1.jar;C:\Users\Анатолий\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.1\jackson-annotations-2.17.1.jar;C:\Users\Анатолий\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.1\jackson-core-2.17.1.jar;C:\Users\Анатолий\.m2\repository\io\qameta\allure\allure-junit4\2.24.0\allure-junit4-2.24.0.jar;C:\Users\Анатолий\.m2\repository\io\qameta\allure\allure-java-commons\2.24.0\allure-java-commons-2.24.0.jar;C:\Users\Анатолий\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Анатолий\.m2\repository\io\qameta\allure\allure-model\2.24.0\allure-model-2.24.0.jar;C:\Users\Анатолий\.m2\repository\io\qameta\allure\allure-test-filter\2.24.0\allure-test-filter-2.24.0.jar;C:\Users\Анатолий\.m2\repository\com\github\javafaker\javafaker\1.0.2\javafaker-1.0.2.jar;C:\Users\Анатолий\.m2\repository\org\apache\commons\commons-lang3\3.5\commons-lang3-3.5.jar;C:\Users\Анатолий\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;C:\Users\Анатолий\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\Анатолий\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;C:\Users\Анатолий\.m2\repository\org\apache\maven\surefire\surefire-junit4\3.2.5\surefire-junit4-3.2.5.jar;C:\Users\Анатолий\.m2\repository\org\apache\maven\surefire\common-java5\3.2.5\common-java5-3.2.5.jar;C:\Users\Анатолий\.m2\repository\org\apache\maven\surefire\common-junit3\3.2.5\common-junit3-3.2.5.jar;C:\Users\Анатолий\.m2\repository\org\apache\maven\surefire\common-junit4\3.2.5\common-junit4-3.2.5.jar"/>
-    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/anatoliy/.m2/repository/org/apache/maven/surefire/surefire-booter/3.2.5/surefire-booter-3.2.5.jar:/Users/anatoliy/.m2/repository/org/apache/maven/surefire/surefire-api/3.2.5/surefire-api-3.2.5.jar:/Users/anatoliy/.m2/repository/org/apache/maven/surefire/surefire-logger-api/3.2.5/surefire-logger-api-3.2.5.jar:/Users/anatoliy/.m2/repository/org/apache/maven/surefire/surefire-shared-utils/3.2.5/surefire-shared-utils-3.2.5.jar:/Users/anatoliy/.m2/repository/org/apache/maven/surefire/surefire-extensions-spi/3.2.5/surefire-extensions-spi-3.2.5.jar:/Users/anatoliy/IdeaProjects/Sprint_7/target/test-classes:/Users/anatoliy/IdeaProjects/Sprint_7/target/classes:/Users/anatoliy/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/anatoliy/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/anatoliy/.m2/repository/io/rest-assured/rest-assured/5.3.1/rest-assured-5.3.1.jar:/Users/anatoliy/.m2/repository/org/apache/groovy/groovy/4.0.11/groovy-4.0.11.jar:/Users/anatoliy/.m2/repository/org/apache/groovy/groovy-xml/4.0.11/groovy-xml-4.0.11.jar:/Users/anatoliy/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/anatoliy/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/anatoliy/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/anatoliy/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/anatoliy/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/anatoliy/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/anatoliy/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/anatoliy/.m2/repository/io/rest-assured/xml-path/5.3.1/xml-path-5.3.1.jar:/Users/anatoliy/.m2/repository/io/rest-assured/json-path/5.3.1/json-path-5.3.1.jar:/Users/anatoliy/.m2/repository/org/apache/groovy/groovy-json/4.0.11/groovy-json-4.0.11.jar:/Users/anatoliy/.m2/repository/io/rest-assured/rest-assured-common/5.3.1/rest-assured-common-5.3.1.jar:/Users/anatoliy/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.1/jackson-databind-2.17.1.jar:/Users/anatoliy/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.1/jackson-annotations-2.17.1.jar:/Users/anatoliy/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.1/jackson-core-2.17.1.jar:/Users/anatoliy/.m2/repository/io/qameta/allure/allure-junit4/2.24.0/allure-junit4-2.24.0.jar:/Users/anatoliy/.m2/repository/io/qameta/allure/allure-java-commons/2.24.0/allure-java-commons-2.24.0.jar:/Users/anatoliy/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/anatoliy/.m2/repository/io/qameta/allure/allure-model/2.24.0/allure-model-2.24.0.jar:/Users/anatoliy/.m2/repository/io/qameta/allure/allure-test-filter/2.24.0/allure-test-filter-2.24.0.jar:/Users/anatoliy/.m2/repository/com/github/javafaker/javafaker/1.0.2/javafaker-1.0.2.jar:/Users/anatoliy/.m2/repository/org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar:/Users/anatoliy/.m2/repository/org/yaml/snakeyaml/1.23/snakeyaml-1.23-android.jar:/Users/anatoliy/.m2/repository/com/github/mifmif/generex/1.0.2/generex-1.0.2.jar:/Users/anatoliy/.m2/repository/dk/brics/automaton/automaton/1.11-8/automaton-1.11-8.jar:/Users/anatoliy/.m2/repository/org/apache/maven/surefire/surefire-junit4/3.2.5/surefire-junit4-3.2.5.jar:/Users/anatoliy/.m2/repository/org/apache/maven/surefire/common-java5/3.2.5/common-java5-3.2.5.jar:/Users/anatoliy/.m2/repository/org/apache/maven/surefire/common-junit3/3.2.5/common-junit3-3.2.5.jar:/Users/anatoliy/.m2/repository/org/apache/maven/surefire/common-junit4/3.2.5/common-junit4-3.2.5.jar"/>
+    <property name="java.vm.vendor" value="Homebrew"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="user.variant" value=""/>
-    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
-    <property name="user.timezone" value="Europe/Moscow"/>
-    <property name="java.vm.specification.version" value="11"/>
-    <property name="os.name" value="Windows 11"/>
+    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="user.timezone" value="Asia/Tokyo"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="17"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.26_4\bin"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\Анатолий\AppData\Local\Temp\surefire13036749702320318610 2025-07-25T03-02-20_252-jvmRun1 surefire-20250725030220903_1tmp surefire_0-20250725030220903_2tmp"/>
+    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk@17/17.0.14/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /Users/anatoliy/IdeaProjects/Sprint_7/target/surefire 2025-07-27T12-13-12_084-jvmRun1 surefire-20250727121312127_1tmp surefire_0-20250727121312127_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\cygwin64\home\Анатолий\Sprint_7\target\test-classes;C:\cygwin64\home\Анатолий\Sprint_7\target\classes;C:\Users\Анатолий\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Анатолий\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Анатолий\.m2\repository\io\rest-assured\rest-assured\5.3.1\rest-assured-5.3.1.jar;C:\Users\Анатолий\.m2\repository\org\apache\groovy\groovy\4.0.11\groovy-4.0.11.jar;C:\Users\Анатолий\.m2\repository\org\apache\groovy\groovy-xml\4.0.11\groovy-xml-4.0.11.jar;C:\Users\Анатолий\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\Анатолий\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\Анатолий\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Анатолий\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\Анатолий\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\Анатолий\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\Анатолий\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\Анатолий\.m2\repository\io\rest-assured\xml-path\5.3.1\xml-path-5.3.1.jar;C:\Users\Анатолий\.m2\repository\io\rest-assured\json-path\5.3.1\json-path-5.3.1.jar;C:\Users\Анатолий\.m2\repository\org\apache\groovy\groovy-json\4.0.11\groovy-json-4.0.11.jar;C:\Users\Анатолий\.m2\repository\io\rest-assured\rest-assured-common\5.3.1\rest-assured-common-5.3.1.jar;C:\Users\Анатолий\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.1\jackson-databind-2.17.1.jar;C:\Users\Анатолий\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.1\jackson-annotations-2.17.1.jar;C:\Users\Анатолий\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.1\jackson-core-2.17.1.jar;C:\Users\Анатолий\.m2\repository\io\qameta\allure\allure-junit4\2.24.0\allure-junit4-2.24.0.jar;C:\Users\Анатолий\.m2\repository\io\qameta\allure\allure-java-commons\2.24.0\allure-java-commons-2.24.0.jar;C:\Users\Анатолий\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Анатолий\.m2\repository\io\qameta\allure\allure-model\2.24.0\allure-model-2.24.0.jar;C:\Users\Анатолий\.m2\repository\io\qameta\allure\allure-test-filter\2.24.0\allure-test-filter-2.24.0.jar;C:\Users\Анатолий\.m2\repository\com\github\javafaker\javafaker\1.0.2\javafaker-1.0.2.jar;C:\Users\Анатолий\.m2\repository\org\apache\commons\commons-lang3\3.5\commons-lang3-3.5.jar;C:\Users\Анатолий\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;C:\Users\Анатолий\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\Анатолий\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;"/>
+    <property name="surefire.test.class.path" value="/Users/anatoliy/IdeaProjects/Sprint_7/target/test-classes:/Users/anatoliy/IdeaProjects/Sprint_7/target/classes:/Users/anatoliy/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/anatoliy/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/anatoliy/.m2/repository/io/rest-assured/rest-assured/5.3.1/rest-assured-5.3.1.jar:/Users/anatoliy/.m2/repository/org/apache/groovy/groovy/4.0.11/groovy-4.0.11.jar:/Users/anatoliy/.m2/repository/org/apache/groovy/groovy-xml/4.0.11/groovy-xml-4.0.11.jar:/Users/anatoliy/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/anatoliy/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/anatoliy/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/anatoliy/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/anatoliy/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/anatoliy/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/anatoliy/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/anatoliy/.m2/repository/io/rest-assured/xml-path/5.3.1/xml-path-5.3.1.jar:/Users/anatoliy/.m2/repository/io/rest-assured/json-path/5.3.1/json-path-5.3.1.jar:/Users/anatoliy/.m2/repository/org/apache/groovy/groovy-json/4.0.11/groovy-json-4.0.11.jar:/Users/anatoliy/.m2/repository/io/rest-assured/rest-assured-common/5.3.1/rest-assured-common-5.3.1.jar:/Users/anatoliy/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.1/jackson-databind-2.17.1.jar:/Users/anatoliy/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.1/jackson-annotations-2.17.1.jar:/Users/anatoliy/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.1/jackson-core-2.17.1.jar:/Users/anatoliy/.m2/repository/io/qameta/allure/allure-junit4/2.24.0/allure-junit4-2.24.0.jar:/Users/anatoliy/.m2/repository/io/qameta/allure/allure-java-commons/2.24.0/allure-java-commons-2.24.0.jar:/Users/anatoliy/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/anatoliy/.m2/repository/io/qameta/allure/allure-model/2.24.0/allure-model-2.24.0.jar:/Users/anatoliy/.m2/repository/io/qameta/allure/allure-test-filter/2.24.0/allure-test-filter-2.24.0.jar:/Users/anatoliy/.m2/repository/com/github/javafaker/javafaker/1.0.2/javafaker-1.0.2.jar:/Users/anatoliy/.m2/repository/org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar:/Users/anatoliy/.m2/repository/org/yaml/snakeyaml/1.23/snakeyaml-1.23-android.jar:/Users/anatoliy/.m2/repository/com/github/mifmif/generex/1.0.2/generex-1.0.2.jar:/Users/anatoliy/.m2/repository/dk/brics/automaton/automaton/1.11-8/automaton-1.11-8.jar:"/>
     <property name="allure.results.directory" value="target/allure-results"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="C:\Users\Анатолий"/>
+    <property name="user.home" value="/Users/anatoliy"/>
     <property name="user.language" value="ru"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.version.date" value="2025-01-21"/>
-    <property name="java.home" value="C:\Program Files\Amazon Corretto\jdk11.0.26_4"/>
-    <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\cygwin64\home\Анатолий\Sprint_7"/>
+    <property name="java.home" value="/opt/homebrew/Cellar/openjdk@17/17.0.14/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/anatoliy/IdeaProjects/Sprint_7"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
-    <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="user.script" value=""/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="11.0.26+4-LTS"/>
-    <property name="user.name" value="Анатолий"/>
-    <property name="path.separator" value=";"/>
-    <property name="os.version" value="10.0"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="17.0.14+0"/>
+    <property name="user.name" value="anatoliy"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="15.3.2"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="file.encoding" value="Cp1251"/>
+    <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="java.vendor.version" value="Corretto-11.0.26.4.1"/>
-    <property name="localRepository" value="C:\Users\Анатолий\.m2\repository"/>
-    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-11/issues/"/>
-    <property name="java.io.tmpdir" value="C:\Users\E393~1\AppData\Local\Temp\"/>
-    <property name="java.version" value="11.0.26"/>
-    <property name="user.dir" value="C:\cygwin64\home\Анатолий\Sprint_7"/>
-    <property name="os.arch" value="amd64"/>
+    <property name="java.vendor.version" value="Homebrew"/>
+    <property name="localRepository" value="/Users/anatoliy/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/9d/hmzwwg856fq_5hlpzttc83jc0000gp/T/"/>
+    <property name="java.version" value="17.0.14"/>
+    <property name="user.dir" value="/Users/anatoliy/IdeaProjects/Sprint_7"/>
+    <property name="os.arch" value="aarch64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
-    <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.26_4\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Amazon Corretto\jdk11.0.26_4\bin;C:\VulkanSDK\1.3.211.0\Bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files\Oculus\Support\oculus-runtime;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\PuTTY\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Git\cmd;C:\Program Files\WireGuard\;C:\Program Files\AmneziaWG\;C:\Program Files\PostgreSQL\17\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\apache-maven-3.9.9\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Users\Анатолий\.cargo\bin;C:\Users\Анатолий\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Анатолий\AppData\Local\Programs\Python\Python313\;C:\Users\Анатолий\AppData\Local\Microsoft\WindowsApps;C:\Users\Анатолий\AppData\Local\Programs\MiKTeX 2.9\miktex\bin\x64\;C:\Users\Анатолий\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Анатолий\.dotnet\tools;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\Анатолий\.lmstudio\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.3.5\bin;;C:\Users\Анатолий\AppData\Roaming\npm;C:\allure-2.34.1\bin;;."/>
-    <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.vendor" value="Amazon.com Inc."/>
-    <property name="java.vm.version" value="11.0.26+4-LTS"/>
-    <property name="java.specification.maintenance.version" value="3"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="java.class.version" value="55.0"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/anatoliy/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Homebrew"/>
+    <property name="java.vm.version" value="17.0.14+0"/>
+    <property name="java.specification.maintenance.version" value="1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="shouldAcceptOrderSuccessfullyTest[Invalid courierId=-1, orderId=-1]" classname="scooter.test.OrderAcceptTests" time="3.294"/>
-  <testcase name="shouldFailWithInvalidIdsTest[Invalid courierId=-1, orderId=-1]" classname="scooter.test.OrderAcceptTests" time="2.069"/>
-  <testcase name="shouldFailWithoutOrderIdTest[Invalid courierId=-1, orderId=-1]" classname="scooter.test.OrderAcceptTests" time="2.14"/>
-  <testcase name="shouldFailWithoutCourierIdTest[Invalid courierId=-1, orderId=-1]" classname="scooter.test.OrderAcceptTests" time="3.346"/>
-  <testcase name="shouldFailToAcceptAlreadyAcceptedOrderTest[Invalid courierId=-1, orderId=-1]" classname="scooter.test.OrderAcceptTests" time="3.702"/>
-  <testcase name="shouldAcceptOrderSuccessfullyTest[Invalid courierId=0, orderId=0]" classname="scooter.test.OrderAcceptTests" time="3.413"/>
-  <testcase name="shouldFailWithInvalidIdsTest[Invalid courierId=0, orderId=0]" classname="scooter.test.OrderAcceptTests" time="2.061"/>
-  <testcase name="shouldFailWithoutOrderIdTest[Invalid courierId=0, orderId=0]" classname="scooter.test.OrderAcceptTests" time="2.076"/>
-  <testcase name="shouldFailWithoutCourierIdTest[Invalid courierId=0, orderId=0]" classname="scooter.test.OrderAcceptTests" time="3.428"/>
-  <testcase name="shouldFailToAcceptAlreadyAcceptedOrderTest[Invalid courierId=0, orderId=0]" classname="scooter.test.OrderAcceptTests" time="3.639"/>
-  <testcase name="shouldAcceptOrderSuccessfullyTest[Invalid courierId=999 999, orderId=999 999]" classname="scooter.test.OrderAcceptTests" time="3.171"/>
-  <testcase name="shouldFailWithInvalidIdsTest[Invalid courierId=999 999, orderId=999 999]" classname="scooter.test.OrderAcceptTests" time="2.067"/>
-  <testcase name="shouldFailWithoutOrderIdTest[Invalid courierId=999 999, orderId=999 999]" classname="scooter.test.OrderAcceptTests" time="2.082"/>
-  <testcase name="shouldFailWithoutCourierIdTest[Invalid courierId=999 999, orderId=999 999]" classname="scooter.test.OrderAcceptTests" time="3.124"/>
-  <testcase name="shouldFailToAcceptAlreadyAcceptedOrderTest[Invalid courierId=999 999, orderId=999 999]" classname="scooter.test.OrderAcceptTests" time="3.791"/>
+  <testcase name="shouldAcceptOrderSuccessfullyTest[Invalid courierId=-1, orderId=-1]" classname="scooter.test.OrderAcceptTests" time="11.226"/>
+  <testcase name="shouldFailWithInvalidIdsTest[Invalid courierId=-1, orderId=-1]" classname="scooter.test.OrderAcceptTests" time="7.336"/>
+  <testcase name="shouldFailWithoutOrderIdTest[Invalid courierId=-1, orderId=-1]" classname="scooter.test.OrderAcceptTests" time="7.37"/>
+  <testcase name="shouldFailWithoutCourierIdTest[Invalid courierId=-1, orderId=-1]" classname="scooter.test.OrderAcceptTests" time="11.299"/>
+  <testcase name="shouldFailToAcceptAlreadyAcceptedOrderTest[Invalid courierId=-1, orderId=-1]" classname="scooter.test.OrderAcceptTests" time="12.899"/>
+  <testcase name="shouldAcceptOrderSuccessfullyTest[Invalid courierId=0, orderId=0]" classname="scooter.test.OrderAcceptTests" time="13.003"/>
+  <testcase name="shouldFailWithInvalidIdsTest[Invalid courierId=0, orderId=0]" classname="scooter.test.OrderAcceptTests" time="7.599"/>
+  <testcase name="shouldFailWithoutOrderIdTest[Invalid courierId=0, orderId=0]" classname="scooter.test.OrderAcceptTests" time="6.956"/>
+  <testcase name="shouldFailWithoutCourierIdTest[Invalid courierId=0, orderId=0]" classname="scooter.test.OrderAcceptTests" time="11.035"/>
+  <testcase name="shouldFailToAcceptAlreadyAcceptedOrderTest[Invalid courierId=0, orderId=0]" classname="scooter.test.OrderAcceptTests" time="14.235"/>
+  <testcase name="shouldAcceptOrderSuccessfullyTest[Invalid courierId=999 999, orderId=999 999]" classname="scooter.test.OrderAcceptTests" time="16.589"/>
+  <testcase name="shouldFailWithInvalidIdsTest[Invalid courierId=999 999, orderId=999 999]" classname="scooter.test.OrderAcceptTests" time="7.162"/>
+  <testcase name="shouldFailWithoutOrderIdTest[Invalid courierId=999 999, orderId=999 999]" classname="scooter.test.OrderAcceptTests" time="8.496"/>
+  <testcase name="shouldFailWithoutCourierIdTest[Invalid courierId=999 999, orderId=999 999]" classname="scooter.test.OrderAcceptTests" time="12.698"/>
+  <testcase name="shouldFailToAcceptAlreadyAcceptedOrderTest[Invalid courierId=999 999, orderId=999 999]" classname="scooter.test.OrderAcceptTests" time="14.129"/>
 </testsuite>

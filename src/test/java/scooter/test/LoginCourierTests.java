@@ -49,13 +49,32 @@ public class LoginCourierTests {
     }
 
     @Test
-    @DisplayName("Ошибка при авторизации с несуществующими данными")
-    @Story("Negative: Wrong credentials")
-    @Description("Попытка авторизации с неверными данными. Ожидается ошибка 404.")
-    public void shouldFailWithWrongCredentialsTest() {
-        courierClient.loginCourierRaw("non_existing_login", "wrong_password")
+    @DisplayName("Ошибка при авторизации с несуществующим логином")
+    @Story("Negative: Wrong login")
+    @Description("Попытка авторизации с несуществующим логином. Ожидается ошибка 404.")
+    public void shouldFailWithWrongLoginTest() {
+        courierClient.loginCourierRaw("non_existing_login", "valid_password")
                 .statusCode(SC_NOT_FOUND)
                 .body("message", containsString("Учетная запись не найдена"));
+    }
+
+    @Test
+    @DisplayName("Ошибка при авторизации с неверным паролем")
+    @Story("Negative: Wrong password")
+    @Description("Создание курьера и попытка авторизации с неверным паролем. Ожидается ошибка 404.")
+    public void shouldFailWithWrongPasswordTest() {
+        String login = faker.name().username();
+        String correctPassword = faker.internet().password();
+        String wrongPassword = "incorrect_" + correctPassword;
+        String firstName = faker.name().firstName();
+
+        createCourier(login, correctPassword, firstName);
+
+        courierClient.loginCourierRaw(login, wrongPassword)
+                .statusCode(SC_NOT_FOUND)
+                .body("message", containsString("Учетная запись не найдена"));
+
+        deleteCourierAfterTest(login, correctPassword);
     }
 
     @Step("Создание курьера: login={login}, password={password}, firstName={firstName}")

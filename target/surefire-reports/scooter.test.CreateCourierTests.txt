@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: scooter.test.CreateCourierTests
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.687 s -- in scooter.test.CreateCourierTests
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.92 s -- in scooter.test.CreateCourierTests
